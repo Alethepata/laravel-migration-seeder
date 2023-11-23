@@ -6,7 +6,7 @@
 
         <table class="table mt-3">
             <thead>
-              <tr>
+              <tr class="text-center">
                 <th scope="col">Partenza</th>
                 <th scope="col">Arrivo</th>
                 <th scope="col">Orario di partenza</th>
@@ -18,11 +18,11 @@
             </thead>
             <tbody>
                 @foreach ($train as $item )
-                    <tr>
+                    <tr class="text-center">
                         <td>{{$item->departure_station}}</td>
                         <td>{{$item->arrival_station}}</td>
-                        <td>{{$item->departure_time}}</td>
-                        <td>{{$item->arrival_time}}</td>
+                        <td>{{substr($item->departure_time,0,5)}}</td>
+                        <td>{{substr($item->arrival_time, 0,5)}}</td>
                         <td>{{$item->train_code}}</td>
                         <td class="{{$item->isin_time ? 'text-success' : 'text-danger'}}">{{$item->isin_time ? 'In orario' : 'In ritardo'}}</td>
                         <td class="text-danger">{{$item->isdeleted ? 'Cancellato' : ''}}</td>
